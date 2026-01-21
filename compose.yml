@@ -1,5 +1,6 @@
 services:
   ollama:
+    runtime: amd
     restart: always
     container_name: ollama
     image: ollama/ollama:rocm  # Replace with specific Ollama version if needed
@@ -16,6 +17,8 @@ services:
       - ollama:/root/.ollama
     networks:
       - default
+    ports:
+      - 11444:11434
 
   openwebui:
     restart: always
